@@ -18,6 +18,10 @@
 doc/
 *.swp
 *~
+GPATH
+GRTAGS
+GSYMS
+GTAGS
 .project
 .DS_Store
 .idea
