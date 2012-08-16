@@ -1,0 +1,13 @@
+<% provide(:title, 'Summary URL (Test)') %>
+<h1>Summary URL (Test)</h1>
+
+<%= form_tag summaries_path, :method => 'get' do %>
+  <%= label_tag("Summarize this URL content") %>
+  <%= text_field_tag :summary_url, params[:summary_url] %>
+  <%= submit_tag "Get Summary", :name => nil %>
+
+  <%= label_tag("Title") %>
+  <%= text_field_tag :summary_title, @summary_title %>
+  <%= label_tag("Description") %>
+  <%= text_field_tag :summary_description, @summary_description %>
+<% end %>
