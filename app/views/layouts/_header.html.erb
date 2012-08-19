@@ -15,6 +15,14 @@
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+
+		<!-- Travel menu -->
+		<li><%= link_to "Home Travel",    home_travel_path %></li>
+		<li><%= link_to "Highlight",      '#' %></li>
+		<li><%= link_to "Places",         '#' %></li>
+		<li><%= link_to "Season & Event", '#' %></li>
+		<li><%= link_to "Photo",          '#' %></li>
+
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", signout_path, method: "delete" %>

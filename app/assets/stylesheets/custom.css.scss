@@ -1,7 +1,12 @@
+$gridColumnWidth: 52px;
+$gridGutterWidth: 18px;
+
+
 @import "bootstrap";
 
 
 /* mixins, variables, etc. */
+
 
 $grayMediumLight: #eaeaea;
 
@@ -19,7 +24,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 55px;
 }
 
 section {
@@ -172,6 +177,12 @@ aside {
 }
 
 
+/* top image */
+.top_image {
+  margin-bottom: 10px
+}
+
+
 /* users index */
 
 .users {
@@ -239,6 +250,20 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+
+/* travel sidebar */
+.container-fluid > .sidebar {
+  float: left;
+  width: 220px;
+}
+
+.container-fluid > .content {
+  float: left;
+  min-width: 700px;
+  max-width: 1180px;
+  margin-left: 20px;
 }
 
 
