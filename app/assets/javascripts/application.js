@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(function() {
+    $(".slidetabs").tabs(".images > div", {
+
+	// enable "cross-fading" effect
+	effect:       "fade",
+	fadeInSpeed:  2000,
+	fadeOutSpeed: 2000,
+
+	// start from the beginning after the last tab
+	rotate: true
+
+	// use the slideshow plugin. It accepts its own configuration
+    }).slideshow({autoplay: true, interval: 6000, clickable: false});
+});

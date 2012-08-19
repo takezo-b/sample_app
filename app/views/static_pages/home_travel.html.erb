@@ -1,0 +1,74 @@
+<div class="container">
+
+  <!-- http://jquerytools.org/demos/tabs/slideshow.htm -->
+
+  <div class="top_image">
+    <img alt="sign" src="/assets/sign.jpg" />
+  </div>
+  
+  <div class="slide_show">
+    <%= stylesheet_link_tag "tabs-slideshow" %>
+
+    <!-- container for the slides -->
+    <div class="images">
+      
+      <!-- first slide -->
+      <div>
+        <img src="assets/slide1/P1030495.jpg" alt="slide1" />
+      </div>
+      
+      <!-- second slide -->
+      <div>
+        <img src="assets/slide1/P1030028.jpg" alt="slide2" />
+      </div>
+      
+      <!-- third slide -->
+      <div>
+        <img src="assets/slide1/P1020954.jpg" alt="slide3" />
+      </div>
+      
+      <!-- forth slide -->
+      <div>
+        <img src="assets/slide1/P1030683-1.jpg" alt="slide4" />
+      </div>
+
+      <!-- fifth slide -->
+      <div>
+        <img src="assets/slide1/P1030232.jpg" alt="slide5" />
+      </div>
+    </div>
+    
+    <!-- the tabs -->
+    <div class="slidetabs">
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+    </div>
+
+    <div style="clear:both;margin:30px 0 0;text-align:center;">
+      <button onclick="$(&quot;.slidetabs&quot;).data(&quot;slideshow&quot;).play();">Play</button>
+      <button onclick="$(&quot;.slidetabs&quot;).data(&quot;slideshow&quot;).stop();">Stop</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <!--Sidebar content-->
+    <div class="span2">
+      <ul class="unstyled">
+	<li><%= link_to "Home Travel",    home_travel_path %></li>
+	<li><%= link_to "Highlight",      '#' %></li>
+	<li><%= link_to "Places",         '#' %></li>
+	<li><%= link_to "Season & Event", '#' %></li>
+	<li><%= link_to "Photo",          '#' %></li>
+      </ul>
+    </div>
+
+    <!--Main content-->
+    <div class="span10">
+      <!--Body content-->
+      <h3> トルコの世界遺産 </h3>
+    </div>
+  </div>
+</div>
