@@ -20,7 +20,7 @@ $(function() {
 
 	// enable "cross-fading" effect
 	effect:       "fade",
-	fadeInSpeed:  2000,
+	// fadeInSpeed:  2000,
 	fadeOutSpeed: 2000,
 
 	// start from the beginning after the last tab
