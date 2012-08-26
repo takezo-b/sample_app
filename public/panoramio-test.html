@@ -1,0 +1,138 @@
+<!-- Panoramio Test 02 Layer Tags -->
+
+<!--
+  参考URL
+  - https://developers.google.com/maps/documentation/javascript/tutorial?hl=ja
+-->
+
+
+<!--
+  ウェブ アプリケーション内で、実際の DOCTYPE を宣言することを
+  おすすめします。上に示した例では、次のようなシンプルな HTML5 DOCTYPE を
+  使用してアプリケーションを HTML5 として宣言しています:
+-->
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <title>Panoramio Test 02 Layer Tags </title>
+  <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+  <script type="text/javascript"
+          src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+  </script>
+
+  <!--
+    このヘッダーにある <meta> タグは、この地図が全画面表示であり、
+    ユーザーがサイズ調整できないことを示しています
+   （詳細は携帯端末の開発を参照してください）。
+  -->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+  <!--
+    互換モードで機能する CSS が、標準モードではうまく表示されない
+    こともありますので注意してください。たとえば、パーセンテージに基づく
+    サイズは必ず親ブロック要素から派生させる必要がありますが、
+    その祖先にサイズが指定されていないものがあると、子のサイズは 0 x 0 ピクセルと
+    見なされてしまいます。そのため、上の例には次のような 
+    <style> 宣言が含まれています:
+
+    この CSS 宣言により、地図コンテナ <div>（名前は map_canvas）の高さを 
+    HTML ボディの 100% にすることが宣言されています。なお、<body> や <html> の
+    パーセンテージも具体的に宣言する必要がありますので注意してください。
+  -->
+  <link href="panoramio-02.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #map_canvas {
+      height: 100%;
+    }
+
+    @media print {
+      html, body {
+        height: auto;
+      }
+  
+      #map_canvas {
+        height: 650px;
+      }
+    }
+  </style>
+
+  <style>
+    #filter {
+      padding: 5px 10px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-top: 0;
+    }
+  </style>
+
+  <!--
+    追加で読み込むライブラリは、ブートストラップ リクエスト内に 
+    libraries パラメータで指定し、そのパラメータに 1つ以上のライブラリ名を渡します。
+    複数のライブラリは、カンマで区切ったリストで指定します。
+    読み込まれたライブラリには、google.maps.libraryName 名前空間でアクセスします。
+    - geometry には、地表面上のスカラーの幾何学値（距離、面積など）を
+      計算するユーティリティ関数が含まれます。
+    - adsense を使用すると、地図の内容に依存したテキスト広告を 
+      Maps API アプリケーションに含めることができるようになります。
+    - panoramio には、Panoramio 写真レイヤを Maps API アプリケーションに
+      追加する機能が含まれます。
+  -->
+  <script type="text/javascript"
+          src="https://maps-api-ssl.google.com/maps/api/js?v=3&libraries=panoramio&sensor=false">
+  </script>
+
+
+  <script type="text/javascript">
+  
+    function initialize() {
+
+      var fremont = new google.maps.LatLng(40.184062,29.06152);
+      var myOptions = {
+        zoom: 18,
+        center: fremont,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+      };
+
+      var map = new google.maps.Map(
+        document.getElementById("map_canvas"),
+        myOptions);
+
+      // panoramio layer
+      // 
+      var panoramioLayer = new google.maps.panoramio.PanoramioLayer();
+      panoramioLayer.setMap(map);
+
+      // 
+      // 
+      var tag = document.getElementById('tag');
+      var button = document.getElementById('filter-button');
+
+      google.maps.event.addDomListener(button, 'click', function() {
+        panoramioLayer.setTag(tag.value);
+      });
+
+      map.controls[google.maps.ControlPosition.TOP].push(
+          document.getElementById('filter'));
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+  </script>
+</head>
+
+
+<body>
+  <div id="filter">
+    <input id="tag" value="Ulu Cami">
+    <button id="filter-button">Filter on Tag</button>
+  </div>
+  <div id="map_canvas" style="width:100%; height:100%"></div>
+</body>
+</html>
